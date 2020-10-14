@@ -1,0 +1,62 @@
+.menu-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 3em;
+    height: 5em;
+    transition: all .5s ease;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+        .menu-btn-burg {
+            background-color: $accent-blue;
+            
+            &:before, &:after {
+                background-color: $accent-blue;
+            }
+        }
+    }
+
+
+    .menu-btn-burg {
+        width: 2em;
+        height: 4px;
+        background-color: $accent-blue;
+        border-radius: 3.5px;
+        transition: ease 0.5s all;
+
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            width: 2em;
+            height: 4px;
+            background-color: $accent-blue;
+            border-radius: 3.5px;
+            transition: ease 0.5s all;
+        }
+
+        &:before {
+            transform: translateY(-0.8em);
+        }
+        
+        &:after {
+            transform: translateY(0.8em);
+        }
+    }
+}
+
+.menu-btn.open .menu-btn-burg {
+    transform: translateX(-4em);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn-burg:before {
+    transform: rotate(45deg) translate(2.85em, -2.85em);
+}
+
+.menu-btn.open .menu-btn-burg:after {
+    transform: rotate(-45deg) translate(2.85em, 2.85em);
+}
